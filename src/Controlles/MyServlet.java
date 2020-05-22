@@ -25,14 +25,6 @@ public class MyServlet extends HttpServlet {
 	}
 
 	
-//	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//		response.setContentType("text/html;charset=utf-8"); 
-//		request.setCharacterEncoding("utf-8"); 
-//		System.out.println("test");
-//		request.getRequestDispatcher("WEB-INF/View/indexof.html");
-		
-			
-		
-//	}
+
 
 }
