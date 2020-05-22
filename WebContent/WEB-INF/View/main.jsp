@@ -32,7 +32,7 @@
 			<div class="container">
 				<ul class="nav flex-column">
 					<li class="nav-item"><a class="nav-link" href="/visitCard/MyServlet">Главная</a></li>
-					<li class="nav-item"><a class="nav-link" href="#">Образование</a></li>
+					<li class="nav-item"><a class="nav-link" href="/visitCard/SkillsServlet">Образование</a></li>
 					<li class="nav-item"><a class="nav-link" href="/visitCard/ExperiensServlet">Опыт работы</a></li>
 				</ul>
 			</div>

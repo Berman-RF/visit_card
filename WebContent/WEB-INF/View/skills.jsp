@@ -1,8 +1,5 @@
-<%@page import="java.util.ArrayList"%>
 <%@page import="java.text.MessageFormat"%>
-<%@page import="Models.Experience"%>
-<%@page import="java.util.Date"%>
-<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="Models.Education"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -35,7 +32,10 @@
 				<ul class="nav flex-column">
 					<li class="nav-item"><a class="nav-link"
 						href="/visitCard/MyServlet">Главная</a></li>
-					<li class="nav-item"><a class="nav-link" href="/visitCard/SkillsServlet">Образование</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="/visitCard/SkillsServlet">Образование</a></li>
+					<li class="nav-item"><a onclick="getSkills()" class="nav-link"
+						href="#">Навыки</a></li>
 					<li class="nav-item"><a class="nav-link"
 						href="/visitCard/ExperiensServlet">Опыт работы</a></li>
 				</ul>
@@ -46,13 +46,15 @@
 			<div>
 				<%
 					String s = "<div class=\"card\"><div class=\"card-header\">{0}</div><div class=\"card-body\"><h4 class=\"card-title\">{1}</h4><p class=\"card-text\">{2}</p></div>";
-					ArrayList<Experience> experience = Experience.getExperience();
-					String html = "";
-					for (Experience exp : experience) {
-						html += MessageFormat.format(s, exp.getCompany_name(), exp.getPosition(), exp.getDescription());
-					}
+					Education education = Education.getEducation();
+					String html = MessageFormat.format(s, education.getUniversity_name(),
+							education.getFaculty() + " " + education.getSpecialization(),
+							education.getDate_in() + " - " + education.getDate_out());
 				%>
 				<%=html%>
+			</div>
+			<div id="x" style="margin-top: 2%;">
+				
 			</div>
 
 		</div>
@@ -61,4 +63,12 @@
 
 
 </body>
+<script type="text/javascript">
+	function getSkills() {
+		$.get("/visitCard/AjaxServlet", function(data) {
+			console.log(data);
+			$("#x").html("<h2>Навыки</h2>" + data.skill_description);
+		});
+	}
+</script>
 </html>
